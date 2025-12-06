@@ -49,14 +49,14 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex flex-col">
+    <div className="min-h-screen glass-background flex flex-col">
       {/* Header */}
-      <header className="bg-gray-800 border-b border-gray-700">
+      <header className="glass-panel shadow-lg rounded-b-3xl border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Heart className="text-blue-500 dark:text-blue-400" size={24} />
-              <span className="text-white">MedConnect</span>
+              <span className="text-blue-900 dark:text-white">MedConnect</span>
             </div>
             <div className="flex items-center gap-4">
               <ThemeToggle theme={theme} onToggle={onToggleTheme} />
@@ -66,7 +66,7 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
                   <span>Conectado</span>
                 </div>
               )}
-              <span className="text-white">
+              <span className="text-blue-900 dark:text-white">
                 {formatDuration(callDuration)}
               </span>
             </div>
@@ -107,7 +107,7 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
         </div>
 
         {/* Patient Video (Picture-in-Picture) */}
-        <div className="absolute top-4 right-4 w-48 h-36 bg-gray-700 rounded-lg overflow-hidden shadow-lg border-2 border-gray-600">
+        <div className="absolute top-4 right-4 w-48 h-36 glass-panel glass-muted rounded-2xl overflow-hidden shadow-lg">
           {isVideoEnabled ? (
             <div className="w-full h-full flex items-center justify-center bg-gray-600">
               <div className="text-center">
@@ -124,7 +124,7 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
 
         {/* Connection Help */}
         {connectionStatus === 'connected' && (
-          <div className="absolute top-4 left-4 bg-blue-900/90 text-white px-4 py-3 rounded-lg max-w-md">
+          <div className="absolute top-4 left-4 glass-panel glass-cta text-white px-4 py-3 rounded-2xl max-w-md">
             <div className="flex items-start gap-2">
               <AlertCircle size={20} className="flex-shrink-0 mt-0.5" />
               <div>
@@ -141,7 +141,7 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
       </div>
 
       {/* Controls */}
-      <div className="bg-gray-800 border-t border-gray-700 p-6">
+      <div className="glass-panel rounded-t-3xl p-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-center gap-4">
             {/* Video Toggle */}
@@ -213,7 +213,7 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
       {/* End Call Confirmation Modal */}
       {showEndConfirm && (
         <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-          <div className="bg-white rounded-xl max-w-md w-full p-6">
+          <div className="glass-panel rounded-3xl max-w-md w-full p-6">
             <h3 className="text-blue-900 mb-3">
               ¿Terminar la consulta?
             </h3>
@@ -240,7 +240,13 @@ export function VideoCall({ appointment, onEndCall, theme, onToggleTheme }: Vide
       )}
 
       {/* Emergency Help */}
-      <div className="absolute bottom-24 left-4 bg-red-900/90 text-white px-4 py-3 rounded-lg max-w-xs">
+      <div
+        className="absolute bottom-24 left-4 glass-panel text-white px-4 py-3 rounded-2xl max-w-xs"
+        style={{
+          background: 'linear-gradient(135deg, rgba(185, 28, 28, 0.9), rgba(153, 27, 27, 0.85))',
+          borderColor: 'rgba(248, 113, 113, 0.35)'
+        }}
+      >
         <p className="mb-2">🚨 En caso de emergencia:</p>
         <p className="text-sm">
           Si sientes que tu vida está en peligro, cuelga inmediatamente 

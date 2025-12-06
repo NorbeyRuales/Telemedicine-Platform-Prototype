@@ -203,7 +203,7 @@ function App() {
   // Show loading screen
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900 flex items-center justify-center">
+      <div className="min-h-screen glass-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-16 h-16 border-4 border-blue-600 border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
           <p className="text-gray-600 dark:text-gray-300">Cargando...</p>
@@ -213,7 +213,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen glass-background">
       {currentScreen === 'home' && (
         <Home 
           onGetStarted={() => setCurrentScreen('register')} 

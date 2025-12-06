@@ -59,9 +59,9 @@ export function Onboarding({ userName, onComplete, theme, onToggleTheme }: Onboa
   const Icon = currentStepData.icon;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -112,7 +112,7 @@ export function Onboarding({ userName, onComplete, theme, onToggleTheme }: Onboa
         </div>
 
         {/* Step Content */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 md:p-12">
+        <div className="glass-panel rounded-3xl p-8 md:p-12">
           <div className="flex flex-col items-center text-center">
             <div className="w-20 h-20 bg-blue-100 dark:bg-blue-900 rounded-full flex items-center justify-center mb-6">
               <Icon className="text-blue-600 dark:text-blue-400" size={40} />
@@ -130,7 +130,7 @@ export function Onboarding({ userName, onComplete, theme, onToggleTheme }: Onboa
               {currentStepData.description}
             </p>
 
-            <div className="bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-4 w-full max-w-lg">
+            <div className="glass-panel glass-cta rounded-2xl p-4 w-full max-w-lg">
               <p className="text-blue-900 dark:text-blue-300 mb-1">💡 Consejo útil</p>
               <p className="text-gray-700 dark:text-gray-300">
                 {currentStepData.tip}
@@ -144,14 +144,14 @@ export function Onboarding({ userName, onComplete, theme, onToggleTheme }: Onboa
           {currentStep > 0 && (
             <button
               onClick={() => setCurrentStep(currentStep - 1)}
-              className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-3 px-6 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+              className="flex-1 glass-panel glass-muted text-gray-900 dark:text-white py-3 px-6 rounded-lg transition-transform hover:-translate-y-1"
             >
               Paso anterior
             </button>
           )}
           <button
             onClick={handleNext}
-            className="flex-1 bg-blue-600 dark:bg-blue-500 text-white py-3 px-6 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center justify-center gap-2"
+            className="flex-1 glass-panel glass-cta text-blue-900 dark:text-white py-3 px-6 rounded-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2"
           >
             {currentStep === steps.length - 1 ? (
               <>

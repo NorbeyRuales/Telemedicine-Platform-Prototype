@@ -11,9 +11,9 @@ interface HomeProps {
 
 export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps) {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -46,13 +46,13 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
               onClick={onGetStarted}
-              className="bg-blue-600 dark:bg-blue-500 text-white px-8 py-4 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors shadow-lg"
+              className="glass-panel glass-cta text-blue-900 dark:text-white px-8 py-4 rounded-2xl transition-transform hover:-translate-y-1 shadow-lg"
             >
               Crear cuenta gratis
             </button>
             <button
               onClick={onLogin}
-              className="bg-white dark:bg-gray-800 text-blue-600 dark:text-blue-400 border-2 border-blue-600 dark:border-blue-500 px-8 py-4 rounded-lg hover:bg-blue-50 dark:hover:bg-gray-700 transition-colors"
+              className="glass-panel glass-muted text-blue-600 dark:text-blue-300 px-8 py-4 rounded-2xl transition-transform hover:-translate-y-1"
             >
               Ya tengo cuenta
             </button>
@@ -64,7 +64,7 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
 
         {/* Features */}
         <div className="grid md:grid-cols-3 gap-8 mt-20">
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md text-center">
+          <div className="glass-panel glass-muted p-8 rounded-3xl text-center transition-transform hover:-translate-y-1">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-100 dark:bg-blue-900 rounded-full mb-4">
               <Video className="text-blue-600 dark:text-blue-400" size={32} />
             </div>
@@ -77,7 +77,7 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md text-center">
+          <div className="glass-panel glass-muted p-8 rounded-3xl text-center transition-transform hover:-translate-y-1">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full mb-4">
               <Clock className="text-green-600 dark:text-green-400" size={32} />
             </div>
@@ -90,7 +90,7 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
             </p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-8 rounded-xl shadow-md text-center">
+          <div className="glass-panel glass-muted p-8 rounded-3xl text-center transition-transform hover:-translate-y-1">
             <div className="inline-flex items-center justify-center w-16 h-16 bg-purple-100 dark:bg-purple-900 rounded-full mb-4">
               <Shield className="text-purple-600 dark:text-purple-400" size={32} />
             </div>
@@ -105,7 +105,7 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
         </div>
 
         {/* How it works */}
-        <div className="mt-20 bg-white dark:bg-gray-800 rounded-xl shadow-md p-8 md:p-12">
+        <div className="mt-20 glass-panel rounded-3xl p-8 md:p-12">
           <h2 className="text-center text-blue-900 dark:text-white mb-12">
             ¿Cómo funciona?
           </h2>
@@ -147,7 +147,7 @@ export function Home({ onGetStarted, onLogin, theme, onToggleTheme }: HomeProps)
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-100 dark:bg-gray-800 mt-20 py-8">
+      <footer className="glass-panel glass-muted mt-20 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-gray-600 dark:text-gray-400">
           <p>© 2025 MedConnect - Cuidando tu salud con tecnología accesible</p>
         </div>

@@ -161,9 +161,9 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <button
@@ -188,7 +188,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
         </div>
 
         {/* Upload Form */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+        <div className="glass-panel rounded-2xl p-6 mb-8">
           <h2 className="text-gray-900 dark:text-white mb-4">Subir nuevo documento</h2>
 
           {success && (
@@ -226,7 +226,8 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
                 />
                 <label
                   htmlFor="file-input"
-                  className="flex items-center justify-center gap-3 w-full px-4 py-8 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-lg cursor-pointer hover:border-blue-500 dark:hover:border-blue-400 transition-colors bg-gray-50 dark:bg-gray-700/50"
+                  className="flex items-center justify-center gap-3 w-full px-4 py-8 glass-panel glass-muted border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-2xl cursor-pointer transition-transform hover:-translate-y-1"
+                  style={{ borderStyle: 'dashed', borderWidth: 2 }}
                 >
                   <Upload className="text-gray-400 dark:text-gray-500" size={32} />
                   <div className="text-center">
@@ -241,7 +242,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
               </div>
 
               {selectedFile && (
-                <div className="mt-3 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg flex items-center justify-between">
+                <div className="mt-3 glass-panel glass-cta rounded-2xl p-4 flex items-center justify-between">
                   <div className="flex items-center gap-3">
                     <FileText className="text-blue-600 dark:text-blue-400" size={24} />
                     <div>
@@ -290,7 +291,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
             <button
               type="submit"
               disabled={!selectedFile || uploading}
-              className="w-full bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors disabled:bg-blue-300 dark:disabled:bg-blue-800 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+              className="w-full glass-panel glass-cta text-blue-900 dark:text-white py-3 rounded-lg transition-transform hover:-translate-y-1 disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
             >
               {uploading ? (
                 <>
@@ -308,7 +309,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
         </div>
 
         {/* Documents List */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
+        <div className="glass-panel rounded-3xl p-6">
           <h2 className="text-gray-900 dark:text-white mb-4">Tus documentos guardados</h2>
 
           {documents.length === 0 ? (
@@ -326,7 +327,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
               {documents.map((doc) => (
                 <div
                   key={doc.id}
-                  className="p-4 border border-gray-200 dark:border-gray-700 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors"
+                  className="p-4 glass-panel glass-muted rounded-2xl transition-transform hover:-translate-y-1"
                 >
                   <div className="flex items-start justify-between">
                     <div className="flex items-start gap-3 flex-1">
@@ -378,7 +379,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
         </div>
 
         {/* Help Box */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
+        <div className="mt-8 glass-panel glass-cta rounded-2xl p-6">
           <p className="text-blue-900 dark:text-blue-300 mb-2">
             ¿Qué documentos puedes subir?
           </p>

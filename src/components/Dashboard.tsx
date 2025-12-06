@@ -54,9 +54,9 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -96,18 +96,18 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
           <button
             onClick={() => onNavigate('schedule')}
-            className="bg-blue-600 dark:bg-blue-500 text-white p-6 rounded-xl hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center gap-3"
+            className="glass-panel glass-cta text-blue-900 dark:text-white p-6 rounded-3xl transition-transform flex items-center gap-3 hover:-translate-y-1"
           >
             <Calendar size={24} />
             <div className="text-left">
-              <p>Agendar nueva cita</p>
-              <p className="text-blue-100 dark:text-blue-200">Encuentra un doctor disponible</p>
+              <p className="text-blue-900 dark:text-white">Agendar nueva cita</p>
+              <p className="text-blue-900 dark:text-blue-100">Encuentra un doctor disponible</p>
             </div>
           </button>
 
           <button
             onClick={() => onNavigate('documents')}
-            className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center gap-3"
+            className="glass-panel glass-muted text-gray-900 dark:text-white p-6 rounded-3xl transition-transform flex items-center gap-3 hover:-translate-y-1"
           >
             <Upload size={24} />
             <div className="text-left">
@@ -118,7 +118,7 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
 
           <button
             onClick={() => onNavigate('history')}
-            className="bg-white dark:bg-gray-800 border-2 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 p-6 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors flex items-center gap-3"
+            className="glass-panel glass-muted text-gray-900 dark:text-white p-6 rounded-3xl transition-transform flex items-center gap-3 hover:-translate-y-1"
           >
             <FileText size={24} />
             <div className="text-left">
@@ -129,7 +129,7 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
         </div>
 
         {/* Upcoming Appointments */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <div className="glass-panel rounded-3xl p-6 mb-8">
           <div className="flex items-center gap-2 mb-6">
             <Clock className="text-blue-600 dark:text-blue-400" size={24} />
             <h2 className="text-blue-900 dark:text-white">
@@ -142,7 +142,7 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
               {upcomingAppointments.map((appointment) => (
                 <div
                   key={appointment.id}
-                  className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 hover:border-blue-300 dark:hover:border-blue-600 transition-colors"
+                  className="glass-panel glass-muted rounded-2xl p-4 transition-transform hover:-translate-y-1"
                 >
                   <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
                     <div className="flex-1">
@@ -168,7 +168,11 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
                     </div>
                     <button
                       onClick={() => onStartVideoCall(appointment)}
-                      className="bg-green-600 dark:bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-700 dark:hover:bg-green-600 transition-colors flex items-center gap-2 justify-center"
+                      className="glass-panel px-6 py-3 rounded-xl text-white transition-transform hover:-translate-y-0.5 flex items-center gap-2 justify-center"
+                      style={{
+                        background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.9), rgba(34, 197, 94, 0.9))',
+                        borderColor: 'rgba(16, 185, 129, 0.4)'
+                      }}
                     >
                       <Video size={20} />
                       <span>Iniciar consulta</span>
@@ -178,14 +182,14 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
               ))}
             </div>
           ) : (
-            <div className="text-center py-12">
+            <div className="glass-panel text-center py-12 rounded-3xl">
               <Calendar className="text-gray-300 dark:text-gray-600 mx-auto mb-4" size={64} />
               <p className="text-gray-600 dark:text-gray-300 mb-4">
                 No tienes consultas programadas en este momento
               </p>
               <button
                 onClick={() => onNavigate('schedule')}
-                className="bg-blue-600 dark:bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors inline-flex items-center gap-2"
+                className="glass-panel glass-cta text-blue-900 dark:text-white px-6 py-3 rounded-xl transition-transform hover:-translate-y-0.5 inline-flex items-center gap-2"
               >
                 <Calendar size={20} />
                 <span>Agendar mi primera consulta</span>
@@ -196,7 +200,7 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
 
         {/* Recent Activity */}
         {appointments.some(apt => apt.status === 'completed') && (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+          <div className="glass-panel rounded-3xl p-6">
             <h2 className="text-blue-900 dark:text-white mb-6">
               Consultas recientes
             </h2>
@@ -233,7 +237,7 @@ export function Dashboard({ user, appointments, onNavigate, onStartVideoCall, on
         )}
 
         {/* Help Section */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
+        <div className="mt-8 glass-panel glass-cta rounded-3xl p-6">
           <h3 className="text-blue-900 dark:text-blue-300 mb-2">¿Necesitas ayuda?</h3>
           <p className="text-gray-700 dark:text-gray-300 mb-4">
             Si tienes alguna pregunta o problema, estamos aquí para ayudarte.

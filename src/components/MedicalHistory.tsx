@@ -68,9 +68,9 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
   });
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -104,7 +104,7 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
         </div>
 
         {/* Search and Filter */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6 mb-8">
+        <div className="glass-panel rounded-3xl p-6 mb-8">
           <div className="grid md:grid-cols-2 gap-4">
             {/* Search */}
             <div>
@@ -154,7 +154,7 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
         </div>
 
         {/* Appointments List */}
-        <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md">
+        <div className="glass-panel rounded-3xl">
           {sortedAppointments.length > 0 ? (
             <div className="divide-y divide-gray-200 dark:divide-gray-700">
               {sortedAppointments.map((appointment) => (
@@ -196,11 +196,11 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
 
                     {appointment.status === 'completed' && (
                       <div className="flex flex-col gap-2">
-                        <button className="bg-blue-600 dark:bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+                        <button className="glass-panel glass-cta text-blue-900 dark:text-white px-4 py-2 rounded-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 whitespace-nowrap">
                           <FileText size={18} />
                           <span>Ver resumen</span>
                         </button>
-                        <button className="bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 px-4 py-2 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors flex items-center justify-center gap-2 whitespace-nowrap">
+                        <button className="glass-panel glass-muted text-gray-900 dark:text-white px-4 py-2 rounded-lg transition-transform hover:-translate-y-1 flex items-center justify-center gap-2 whitespace-nowrap">
                           <Download size={18} />
                           <span>Descargar receta</span>
                         </button>
@@ -237,19 +237,19 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
         {/* Summary Stats */}
         {appointments.length > 0 && (
           <div className="mt-8 grid md:grid-cols-3 gap-6">
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+            <div className="glass-panel glass-muted rounded-3xl p-6">
               <p className="text-gray-600 dark:text-gray-400 mb-1">Total de consultas</p>
               <p className="text-3xl text-blue-900 dark:text-blue-400">
                 {appointments.length}
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+            <div className="glass-panel glass-muted rounded-3xl p-6">
               <p className="text-gray-600 dark:text-gray-400 mb-1">Consultas completadas</p>
               <p className="text-3xl text-green-600 dark:text-green-400">
                 {appointments.filter(a => a.status === 'completed').length}
               </p>
             </div>
-            <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+            <div className="glass-panel glass-muted rounded-3xl p-6">
               <p className="text-gray-600 dark:text-gray-400 mb-1">Consultas próximas</p>
               <p className="text-3xl text-blue-600 dark:text-blue-400">
                 {appointments.filter(a => a.status === 'upcoming').length}
@@ -259,7 +259,7 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
         )}
 
         {/* Privacy Notice */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
+        <div className="mt-8 glass-panel glass-cta rounded-2xl p-6">
           <h3 className="text-blue-900 dark:text-blue-300 mb-2">🔒 Tu privacidad está protegida</h3>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
             Toda tu información médica está encriptada y segura. Solo tú y los médicos 
@@ -272,7 +272,7 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
 
         {/* Export Options */}
         {appointments.length > 0 && (
-          <div className="mt-8 bg-white dark:bg-gray-800 rounded-xl shadow-md p-6">
+          <div className="mt-8 glass-panel rounded-3xl p-6">
             <h3 className="text-blue-900 dark:text-white mb-4">
               Descargar tu historial completo
             </h3>
@@ -280,7 +280,7 @@ export function MedicalHistory({ appointments, onBack, theme, onToggleTheme }: M
               Puedes descargar una copia de todo tu historial médico en formato PDF. 
               Esto es útil si necesitas compartir tu información con otro médico.
             </p>
-            <button className="bg-blue-600 dark:bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors flex items-center gap-2">
+            <button className="glass-panel glass-cta text-blue-900 dark:text-white px-6 py-3 rounded-lg transition-transform hover:-translate-y-1 flex items-center gap-2">
               <Download size={20} />
               <span>Descargar historial completo (PDF)</span>
             </button>

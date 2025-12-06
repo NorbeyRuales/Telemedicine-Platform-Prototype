@@ -129,9 +129,9 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
   const today = new Date().toISOString().split('T')[0];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen glass-background">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-800 shadow-sm">
+      <header className="glass-panel shadow-lg rounded-b-3xl">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
@@ -197,7 +197,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
         </div>
 
         {showConfirmation ? (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
+          <div className="glass-panel rounded-3xl p-8">
             <div className="text-center">
               <div className="w-16 h-16 bg-green-100 dark:bg-green-900 rounded-full flex items-center justify-center mx-auto mb-4">
                 <CheckCircle className="text-green-600 dark:text-green-400" size={32} />
@@ -211,7 +211,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
             </div>
           </div>
         ) : (
-          <div className="bg-white dark:bg-gray-800 rounded-xl shadow-md p-8">
+          <div className="glass-panel rounded-3xl p-8">
             {/* Step 1: Select Doctor */}
             {step === 1 && (
               <div>
@@ -276,7 +276,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
 
                 <button
                   onClick={handleNext}
-                  className="w-full mt-6 bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+                  className="w-full mt-6 glass-panel glass-cta text-blue-900 dark:text-white py-3 rounded-lg transition-transform hover:-translate-y-1"
                 >
                   Continuar al siguiente paso
                 </button>
@@ -294,7 +294,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
                 </div>
 
                 {selectedDoctorData && (
-                  <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg">
+                  <div className="mb-6 glass-panel glass-cta rounded-lg p-4">
                     <p className="text-gray-700 dark:text-gray-300">
                       Médico seleccionado: <span>{selectedDoctorData.name}</span>
                     </p>
@@ -365,13 +365,13 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
                 <div className="flex gap-4 mt-6">
                   <button
                     onClick={() => setStep(1)}
-                    className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    className="flex-1 glass-panel glass-muted text-gray-900 dark:text-white py-3 rounded-lg transition-transform hover:-translate-y-1"
                   >
                     Paso anterior
                   </button>
                   <button
                     onClick={handleNext}
-                    className="flex-1 bg-blue-600 dark:bg-blue-500 text-white py-3 rounded-lg hover:bg-blue-700 dark:hover:bg-blue-600 transition-colors"
+                    className="flex-1 glass-panel glass-cta text-blue-900 dark:text-white py-3 rounded-lg transition-transform hover:-translate-y-1"
                   >
                     Continuar al siguiente paso
                   </button>
@@ -390,7 +390,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
                 </div>
 
                 {selectedDoctorData && (
-                  <div className="mb-6 p-4 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg">
+                  <div className="mb-6 glass-panel glass-cta rounded-lg p-4">
                     <p className="text-gray-700 dark:text-gray-300 mb-1">
                       <span>Médico:</span> {selectedDoctorData.name}
                     </p>
@@ -439,13 +439,17 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
                   <button
                     type="button"
                     onClick={() => setStep(2)}
-                    className="flex-1 bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-200 py-3 rounded-lg hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors"
+                    className="flex-1 glass-panel glass-muted text-gray-900 dark:text-white py-3 rounded-lg transition-transform hover:-translate-y-1"
                   >
                     Paso anterior
                   </button>
                   <button
                     type="submit"
-                    className="flex-1 bg-green-600 dark:bg-green-500 text-white py-3 rounded-lg hover:bg-green-700 dark:hover:bg-green-600 transition-colors"
+                    className="flex-1 glass-panel rounded-lg text-white transition-transform hover:-translate-y-1"
+                    style={{
+                      background: 'linear-gradient(135deg, rgba(16, 185, 129, 0.92), rgba(34, 197, 94, 0.9))',
+                      borderColor: 'rgba(16, 185, 129, 0.4)'
+                    }}
                   >
                     Confirmar y agendar cita
                   </button>
@@ -456,7 +460,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
         )}
 
         {/* Help Box */}
-        <div className="mt-8 bg-blue-50 dark:bg-blue-900/30 border border-blue-200 dark:border-blue-700 rounded-lg p-6">
+        <div className="mt-8 glass-panel glass-cta rounded-3xl p-6">
           <p className="text-blue-900 dark:text-blue-300 mb-2">💡 ¿Necesitas ayuda para agendar?</p>
           <p className="text-gray-700 dark:text-gray-300">
             Si tienes dificultades, llámanos al <span>1-800-MEDCONNECT</span> y 
