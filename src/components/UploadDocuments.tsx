@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type ChangeEvent, type FormEvent } from 'react';
 import { ArrowLeft, Upload, FileText, X, CheckCircle, AlertCircle, Download, Trash2, Info } from 'lucide-react';
 import { Theme } from '../App';
 import { ThemeToggle } from './ThemeToggle';
@@ -37,7 +37,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
     return () => trackExit();
   }, [trackExit]);
 
-  const handleFileSelect = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleFileSelect = (e: ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
 
@@ -69,7 +69,7 @@ export function UploadDocuments({ documents, onUpload, onDelete, onBack, theme, 
     trackAction('file_selected');
   };
 
-  const handleUpload = async (e: React.FormEvent) => {
+  const handleUpload = async (e: FormEvent) => {
     e.preventDefault();
 
     if (!selectedFile) {

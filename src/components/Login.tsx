@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { Heart, ArrowLeft, Mail, Lock, AlertCircle, Eye, EyeOff, CheckCircle } from 'lucide-react';
 import { Theme } from '../App';
 import { ThemeToggle } from './ThemeToggle';
@@ -46,7 +46,7 @@ export function Login({ onLogin, onBack, onRegister, theme, onToggleTheme }: Log
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     trackAction('submit_login');
     

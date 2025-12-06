@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { Heart, ArrowLeft, Calendar, Clock, User, FileText, AlertCircle, CheckCircle, Info } from 'lucide-react';
 import { Appointment, Theme } from '../App';
 import { ThemeToggle } from './ThemeToggle';
@@ -101,7 +101,7 @@ export function ScheduleAppointment({ onSchedule, onCancel, theme, onToggleTheme
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
     
     if (!validateStep3()) return;

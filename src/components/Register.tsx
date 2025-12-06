@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, type FormEvent } from 'react';
 import { Heart, ArrowLeft, Mail, User, AlertCircle, Lock, Shield, Eye, EyeOff, CheckCircle, Info } from 'lucide-react';
 import { Theme } from '../App';
 import { ThemeToggle } from './ThemeToggle';
@@ -72,7 +72,7 @@ export function Register({ onRegister, onBack, onLogin, theme, onToggleTheme }: 
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     
     if (!validateForm()) {
@@ -89,7 +89,7 @@ export function Register({ onRegister, onBack, onLogin, theme, onToggleTheme }: 
       // The redirect to onboarding will happen in App.tsx via useEffect
     } catch (error: any) {
       setErrors({ general: error.message || 'Error al crear la cuenta. Por favor intenta de nuevo.' });
-      trackError(error.message || 'Error al crear la cuenta');
+      trackError('register', error.message || 'Error al crear la cuenta');
     } finally {
       setLoading(false);
     }
